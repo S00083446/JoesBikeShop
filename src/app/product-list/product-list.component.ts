@@ -11,15 +11,19 @@ export class ProductListComponent implements OnInit  {
   imageWidth: number = 50;
   imageMargin: number = 2;
   showImage: boolean = false;
-  _listFilter: string = 'mens';
-  get listFilter(): string{
-    return this._listFilter;
-  }
-  set listFilter(value: string){
-this._listFilter = value;
-this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
-  }
+  
+//   _listFilter: string = 'mens';
+//   get listFilter(): string{
+//     return this._listFilter;
+//   }
+//   set listFilter(value: string){
+// this._listFilter = value;
+// this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : this.products;
+//   }
+
+  filter = {mens: true, womens: true, kids: true};
   filteredProducts: IProduct[];
+
   products: IProduct[] = [
     {
       'bikeId': 1,
@@ -99,12 +103,19 @@ this.filteredProducts = this.listFilter ? this.performFilter(this.listFilter) : 
   ngOnInit() {
   }
 
-  performFilter(filterBy: string): IProduct[]{
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.products.filter((product: IProduct) =>
-    product.bikeName.toLocaleLowerCase().indexOf(filterBy) !== -1);
-  }
+  // performFilter(filterBy: string): IProduct[]{
+  //   filterBy = filterBy.toLocaleLowerCase();
+  //   return this.products.filter((product: IProduct) =>
+  //   product.bikeName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  // }
 
+  filterChange(){
+    this.filteredProducts = this.products.filter(x =>
+      (x.category === 'kids' && this.filter.kids) ||
+      (x.category === 'mens' && this.filter.mens) ||
+      (x.category === 'womens' && this.filter.womens)
+      );
+  }
   onNotify(message: string): void{
 console.log(message);
 
