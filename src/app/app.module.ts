@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ConvertToSpaces } from './shared/convert-to-spaces.pipe';
 import { StarRatingComponent } from './shared/star-rating/star-rating.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faStar);
 
 @NgModule({
   declarations: [
@@ -16,7 +21,8 @@ import { StarRatingComponent } from './shared/star-rating/star-rating.component'
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

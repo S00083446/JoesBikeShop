@@ -20,4 +20,10 @@ new EventEmitter<string>();
     this.notify.emit('clicked');
   }
 
+  ngOnChanges(): void {
+    this.starWidth = this.rating * 90 / 5;
+    console.log(this.starWidth);
+    
+  }
+
 }
