@@ -1,3 +1,13 @@
 thead{
     color:blue;
 }
+.checkboxes
+{
+    margin-right: 550px;
+    float: right;
+}
+label{
+    padding-left:  30px;
+    padding-right:  10px;
+
+}
